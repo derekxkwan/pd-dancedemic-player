@@ -1,4 +1,4 @@
-#N canvas 263 307 1041 643 12;
+#N canvas 102 245 1041 643 12;
 #X declare -lib Gem;
 #N canvas 665 157 890 743 graphcontrol 0;
 #X obj 118 252 bng 27 250 50 0 showall empty show-all 37 13 0 15 -262144
@@ -27,10 +27,10 @@
 #X obj 117 143 tgl 27 0 dd-showdata empty show-data 44 11 0 15 -262144
 -1 -1 1 1;
 #X obj 120 216 tgl 27 0 showpos empty show-pos 44 11 0 15 -262144 -1
--1 0 1;
+-1 1 1;
 #X obj 114 473 tgl 27 0 showhumidity empty show-humidity 44 11 0 15
 -262144 -1 -1 0 1;
-#N canvas 61 158 1376 706 dancerstruct 0;
+#N canvas 439 517 1376 706 dancerstruct 0;
 #N canvas 3 104 450 300 emotibit 0;
 #X obj 16 70 struct emotibit float ppg-ir float ppg-red float ppg-grn
 float eda float temp float therm float humidity float acc-x float acc-y
@@ -81,26 +81,26 @@ mag-y float mag-z;
 #X msg 228 245 traverse pd-dancerdatapatch \, next;
 #X obj 104 582 plot -y humidity(40:100)(500:0) oscdata 255 1 0 10 10
 ;
-#X obj 505 320 plot -y ppg-red(1000:100000)(500:0) oscdata 500 1 0
-10 10;
-#X obj 509 276 plot -y ppg-ir(133000:180000)(500:0) oscdata 505 1 0
-10 10;
-#X obj 510 355 plot -y ppg-grn(200:14000)(500:0) oscdata 50 1 0 10
-10;
 #X obj 967 160 plot -y temp(20:40)(500:0) oscdata 722 1 0 10 10;
 #X obj 957 274 plot -y therm(25:35)(500:0) oscdata 332 1 0 10 10;
 #X obj 566 156 plot -y mag-x(-85:85)(500:0) oscdata 440 1 0 10 10;
 #X obj 557 182 plot -y mag-y(-85:85)(500:0) oscdata 44 1 0 10 10;
 #X obj 557 207 plot -y mag-z(-85:85)(500:0) oscdata 404 1 0 10 10;
-#X connect 2 0 34 0;
-#X connect 2 0 35 0;
-#X connect 2 0 36 0;
-#X connect 3 0 29 0;
-#X connect 3 0 30 0;
-#X connect 3 0 31 0;
+#X obj 509 276 plot -y ppg-ir(133000:170000)(500:0) oscdata 505 1 0
+10 10;
+#X obj 505 320 plot -y ppg-red(70000:94000)(500:0) oscdata 500 1 0
+10 10;
+#X obj 510 355 plot -y ppg-grn(3000:5000)(500:0) oscdata 50 1 0 10
+10;
+#X connect 2 0 31 0;
+#X connect 2 0 32 0;
+#X connect 2 0 33 0;
+#X connect 3 0 34 0;
+#X connect 3 0 35 0;
+#X connect 3 0 36 0;
 #X connect 4 0 25 0;
-#X connect 5 0 32 0;
-#X connect 6 0 33 0;
+#X connect 5 0 29 0;
+#X connect 6 0 30 0;
 #X connect 7 0 22 0;
 #X connect 7 0 23 0;
 #X connect 7 0 24 0;
@@ -142,7 +142,7 @@ mag-y float mag-z;
 15 -262144 -1 -1;
 #X obj 357 405 r ddcleardata;
 #X obj 445 18 r vodataloaded;
-#N canvas 747 304 1207 580 dancerdatapatch 0;
+#N canvas 691 454 1207 580 dancerdatapatch 0;
 #X restore 509 293 pd dancerdatapatch;
 #X msg 348 324 \; pd-dancerdatapatch vis \$1;
 #X msg 351 441 \; pd-dancerdatapatch clear;
@@ -173,29 +173,29 @@ mag-y float mag-z;
 #X restore 50 49 pd graphcontrol;
 #N canvas 724 416 1133 733 datavis 0;
 #X obj 107 215 nbx 7 20 -1e+37 1e+37 0 0 empty ppg-ir ppg-ir 0 -8 0
-17 -262144 -1 -1 141061 256;
+17 -262144 -1 -1 141913 256;
 #X obj 108 257 nbx 7 20 -1e+37 1e+37 0 0 empty ppg-red ppg-red 0 -8
-0 17 -262144 -1 -1 79696.7 256;
+0 17 -262144 -1 -1 75563.5 256;
 #X obj 106 293 nbx 7 20 -1e+37 1e+37 0 0 empty ppg-grn ppg-grn 0 -8
-0 17 -262144 -1 -1 3252.67 256;
+0 17 -262144 -1 -1 3403.5 256;
 #X obj 111 333 nbx 5 20 -1e+37 1e+37 0 0 empty eda eda 0 -8 0 17 -262144
--1 -1 0.998 256;
+-1 -1 1.669 256;
 #X obj 108 375 nbx 5 20 -1e+37 1e+37 0 0 empty temp temp 0 -8 0 17
--262144 -1 -1 30.328 256;
+-262144 -1 -1 31.636 256;
 #X obj 108 417 nbx 5 20 -1e+37 1e+37 0 0 empty therm therm 0 -8 0 17
--262144 -1 -1 27.329 256;
+-262144 -1 -1 30.036 256;
 #X obj 107 460 nbx 5 20 -1e+37 1e+37 0 0 empty humidity humidity 0
--8 0 17 -262144 -1 -1 58.56 256;
+-8 0 17 -262144 -1 -1 74.761 256;
 #X obj 227 147 nbx 5 20 -1e+37 1e+37 0 0 empty acc-x acc-x 0 -8 0 17
--262144 -1 -1 0.0445 256;
+-262144 -1 -1 1.46367 256;
 #X obj 225 186 nbx 5 20 -1e+37 1e+37 0 0 empty acc-y acc-y 0 -8 0 17
--262144 -1 -1 -0.633 256;
+-262144 -1 -1 0.542667 256;
 #X obj 227 224 nbx 5 20 -1e+37 1e+37 0 0 empty acc-z acc-z 0 -8 0 17
--262144 -1 -1 -0.841 256;
+-262144 -1 -1 -2.667 256;
 #X obj 227 267 nbx 5 20 -1e+37 1e+37 0 0 empty gyro-x gyro-x 0 -8 0
-17 -262144 -1 -1 -64.9875 256;
+17 -262144 -1 -1 187.795 256;
 #X obj 224 306 nbx 5 20 -1e+37 1e+37 0 0 empty gyro-y gyro-y 0 -8 0
-17 -262144 -1 -1 7.5835 256;
+17 -262144 -1 -1 -170.817 256;
 #N canvas 293 193 1300 260 dancerarrayget-acc 0;
 #X obj 312 82 r ddataptr;
 #X obj 87 154 array get -s dancerdata oscdata -f emotibit acc-x;
@@ -404,15 +404,15 @@ mag-y float mag-z;
 #X obj 361 154 t f f f f f f f f f f f f f f f f;
 #X obj 326 18 r ddcurframe;
 #X obj 226 345 nbx 5 20 -1e+37 1e+37 0 0 empty gyro-z gyro-z 0 -8 0
-17 -262144 -1 -1 -20.5283 256;
+17 -262144 -1 -1 -509.155 256;
 #X obj 224 384 nbx 5 20 -1e+37 1e+37 0 0 empty mag-x mag-x 0 -8 0 17
--262144 -1 -1 7 256;
+-262144 -1 -1 -3.5 256;
 #X obj 224 422 nbx 5 20 -1e+37 1e+37 0 0 empty mag-y mag-y 0 -8 0 17
--262144 -1 -1 34 256;
+-262144 -1 -1 35.5 256;
 #X obj 222 460 nbx 5 20 -1e+37 1e+37 0 0 empty mag-z mag-z 0 -8 0 17
--262144 -1 -1 -54.3333 256;
+-262144 -1 -1 -30.5 256;
 #X obj 112 154 tgl 27 0 dd-shownum empty show 44 11 0 15 -262144 -1
--1 0 1;
+-1 1 1;
 #X obj 363 62 spigot;
 #X obj 460 18 r dd-shownum;
 #X obj 120 26 loadbang;
@@ -442,7 +442,7 @@ mag-y float mag-z;
 #X restore 261 47 pd datavis;
 #N canvas 754 221 966 553 oscsender 0;
 #X obj 111 124 tgl 27 0 sendosctgl empty send-osc 44 11 0 15 -262144
--1 -1 1 1;
+-1 -1 0 1;
 #X obj 278 147 r sendosctgl;
 #X obj 108 269 spigot;
 #X obj 61 369 list prepend send;
@@ -569,14 +569,14 @@ acc-x acc-y acc-z gyro-x gyro-y gyro-z mag-x mag-y mag-z, f 94;
 #X obj 623 506 s ddmovieloaded;
 #X obj 692 294 r ddframeseek;
 #X obj 1148 379 r ddframeseek;
-#X obj 109 275 hsl 512 15 0 4436 0 0 ddframeseek ddvidseek seek -2
--8 0 12 -262144 -1 -1 36136 1;
+#X obj 109 275 hsl 512 15 0 3492 0 0 ddframeseek ddvidseek seek -2
+-8 0 12 -262144 -1 -1 7902 1;
 #X obj 305 655 s ddvidseek;
 #X obj 419 337 r ddopenbang;
 #X obj 106 225 bng 27 250 50 0 ddopenbang empty load-movie 37 13 0
 15 -262144 -1 -1;
 #X obj 253 150 nbx 7 20 -1e+37 1e+37 0 0 empty ddnumframes numframes
-0 -8 0 17 -262144 -1 -1 4436 256;
+0 -8 0 17 -262144 -1 -1 3492 256;
 #X obj 498 148 nbx 7 20 -1e+37 1e+37 0 0 empty ddwidth width 0 -8 0
 17 -262144 -1 -1 1280 256;
 #X obj 497 187 nbx 7 20 -1e+37 1e+37 0 0 empty ddheight height 0 -8
@@ -585,7 +585,7 @@ acc-x acc-y acc-z gyro-x gyro-y gyro-z mag-x mag-y mag-z, f 94;
 #X obj 794 501 s ddheight;
 #X symbolatom 335 109 40 0 0 0 file ddatabasename -;
 #X obj 374 149 nbx 7 20 -1e+37 1e+37 0 0 empty ddcurframe cur_frame
-0 -8 0 17 -262144 -1 -1 3137 256;
+0 -8 0 17 -262144 -1 -1 540 256;
 #X obj 253 188 nbx 7 20 -1e+37 1e+37 0 0 empty ddfps fps 0 -8 0 17
 -262144 -1 -1 26 256;
 #X obj 106 145 tgl 27 0 ddplay empty play 44 11 0 15 -262144 -1 -1
