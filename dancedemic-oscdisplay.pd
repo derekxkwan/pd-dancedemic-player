@@ -1,0 +1,51 @@
+#N canvas 525 271 757 273 12;
+#X obj 35 44 nbx 7 20 -1e+37 1e+37 0 0 empty ddosc-ppg-ir ppg-ir 0
+-8 0 17 -262144 -1 -1 0 256;
+#X obj 159 43 nbx 7 20 -1e+37 1e+37 0 0 empty ddosc-ppg-red ppg-red
+0 -8 0 17 -262144 -1 -1 0 256;
+#X obj 286 47 nbx 7 20 -1e+37 1e+37 0 0 empty ddosc-ppg-grn ppg-grn
+0 -8 0 17 -262144 -1 -1 0 256;
+#X obj 34 89 nbx 5 20 -1e+37 1e+37 0 0 empty ddosc-eda eda 0 -8 0 17
+-262144 -1 -1 0 256;
+#X obj 156 87 nbx 5 20 -1e+37 1e+37 0 0 empty ddosc-temp temp 0 -8
+0 17 -262144 -1 -1 0 256;
+#X obj 32 134 nbx 5 20 -1e+37 1e+37 0 0 empty ddosc-therm therm 0 -8
+0 17 -262144 -1 -1 0 256;
+#X obj 155 135 nbx 5 20 -1e+37 1e+37 0 0 empty ddosc-humidity humidity
+0 -8 0 17 -262144 -1 -1 0 256;
+#X obj 412 82 nbx 5 20 -1e+37 1e+37 0 0 empty ddosc-acc-x acc-x 0 -8
+0 17 -262144 -1 -1 0 256;
+#X obj 521 83 nbx 5 20 -1e+37 1e+37 0 0 empty ddosc-acc-y acc-y 0 -8
+0 17 -262144 -1 -1 0 256;
+#X obj 633 80 nbx 5 20 -1e+37 1e+37 0 0 empty ddosc-acc-z acc-z 0 -8
+0 17 -262144 -1 -1 0 256;
+#X obj 31 177 nbx 5 20 -1e+37 1e+37 0 0 empty ddosc-gyro-x gyro-x 0
+-8 0 17 -262144 -1 -1 0 256;
+#X obj 155 177 nbx 5 20 -1e+37 1e+37 0 0 empty ddosc-gyro-y gyro-y
+0 -8 0 17 -262144 -1 -1 0 256;
+#X obj 293 179 nbx 5 20 -1e+37 1e+37 0 0 empty ddosc-gyro-z gyro-z
+0 -8 0 17 -262144 -1 -1 0 256;
+#X obj 416 175 nbx 5 20 -1e+37 1e+37 0 0 empty ddosc-mag-x mag-x 0
+-8 0 17 -262144 -1 -1 0 256;
+#X obj 522 174 nbx 5 20 -1e+37 1e+37 0 0 empty ddosc-mag-y mag-y 0
+-8 0 17 -262144 -1 -1 0 256;
+#X obj 630 175 nbx 5 20 -1e+37 1e+37 0 0 empty ddosc-mag-z mag-z 0
+-8 0 17 -262144 -1 -1 0 256;
+#X obj 31 217 nbx 5 20 -1e+37 1e+37 0 0 empty ddosc-gyro-x-delta gyro-x-delta
+0 -8 0 16 -262144 -1 -1 0 256;
+#X obj 155 217 nbx 5 20 -1e+37 1e+37 0 0 empty ddosc-gyro-y-delta gyro-y-delta
+0 -8 0 16 -262144 -1 -1 0 256;
+#X obj 295 221 nbx 5 20 -1e+37 1e+37 0 0 empty ddosc-gyro-z-delta gyro-z-delta
+0 -8 0 16 -262144 -1 -1 0 256;
+#X obj 412 219 nbx 5 20 -1e+37 1e+37 0 0 empty ddosc-mag-x-delta mag-x-delta
+0 -8 0 16 -262144 -1 -1 0 256;
+#X obj 524 219 nbx 5 20 -1e+37 1e+37 0 0 empty ddosc-mag-y-delta mag-y-delta
+0 -8 0 16 -262144 -1 -1 0 256;
+#X obj 629 220 nbx 5 20 -1e+37 1e+37 0 0 empty ddosc-mag-z-delta mag-z-delta
+0 -8 0 16 -262144 -1 -1 0 256;
+#X obj 413 128 nbx 5 20 -1e+37 1e+37 0 0 empty ddosc-acc-x-delta acc-x-delta
+0 -8 0 16 -262144 -1 -1 0 256;
+#X obj 521 127 nbx 5 20 -1e+37 1e+37 0 0 empty ddosc-acc-y-delta acc-y-delta
+0 -8 0 16 -262144 -1 -1 0 256;
+#X obj 634 126 nbx 5 20 -1e+37 1e+37 0 0 empty ddosc-acc-z-delta acc-z-delta
+0 -8 0 16 -262144 -1 -1 0 256;
