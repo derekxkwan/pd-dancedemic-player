@@ -1,23 +1,23 @@
-#N canvas 227 126 1041 643 12;
+#N canvas 973 196 1041 643 12;
 #X declare -lib Gem;
 #N canvas 683 248 890 743 graphcontrol 0;
-#X obj 121 270 bng 27 250 50 0 showall empty show-all 37 13 0 15 -262144
+#X obj 123 306 bng 27 250 50 0 showall empty show-all 37 13 0 15 -262144
 -1 -1;
-#X obj 120 307 bng 27 250 50 0 hideall empty hide-all 37 13 0 15 -262144
+#X obj 122 341 bng 27 250 50 0 hideall empty hide-all 37 13 0 15 -262144
 -1 -1;
-#X obj 122 603 tgl 27 0 showmag empty show-mags 44 11 0 15 -262144
+#X obj 124 629 tgl 27 0 showmag empty show-mags 44 11 0 15 -262144
 -1 -1 1 1;
-#X obj 119 348 tgl 27 0 showppg empty show-ppgs 44 11 0 15 -262144
+#X obj 121 374 tgl 27 0 showppg empty show-ppgs 44 11 0 15 -262144
 -1 -1 1 1;
-#X obj 118 386 tgl 27 0 showeda empty show-eda 44 11 0 15 -262144 -1
+#X obj 120 412 tgl 27 0 showeda empty show-eda 44 11 0 15 -262144 -1
 -1 1 1;
-#X obj 119 421 tgl 27 0 showtemp empty show-temp 44 11 0 15 -262144
+#X obj 121 447 tgl 27 0 showtemp empty show-temp 44 11 0 15 -262144
 -1 -1 1 1;
-#X obj 119 455 tgl 27 0 showtherm empty show-therm 44 11 0 15 -262144
+#X obj 121 481 tgl 27 0 showtherm empty show-therm 44 11 0 15 -262144
 -1 -1 1 1;
-#X obj 122 565 tgl 27 0 showgyro empty show-gyro 44 11 0 15 -262144
+#X obj 124 591 tgl 27 0 showgyro empty show-gyro 44 11 0 15 -262144
 -1 -1 1 1;
-#X obj 118 526 tgl 27 0 showacc empty show-acc 44 11 0 15 -262144 -1
+#X obj 120 552 tgl 27 0 showacc empty show-acc 44 11 0 15 -262144 -1
 -1 1 1;
 #X obj 322 57 loadbang;
 #X msg 322 104 1;
@@ -25,35 +25,53 @@
 #X obj 392 61 r showall;
 #X obj 367 158 r hideall;
 #X obj 118 129 tgl 27 0 dd-showdata empty show-data 44 11 0 15 -262144
--1 -1 0 1;
-#X obj 123 234 tgl 27 0 dd-showcursor empty show-cursor 44 11 0 15
+-1 -1 1 1;
+#X obj 121 272 tgl 27 0 dd-showcursor empty show-cursor 44 11 0 15
 -262144 -1 -1 0 1;
-#X obj 117 491 tgl 27 0 showhumidity empty show-humidity 44 11 0 15
+#X obj 119 517 tgl 27 0 showhumidity empty show-humidity 44 11 0 15
 -262144 -1 -1 1 1;
-#N canvas 452 161 750 601 ddfileloader 0;
-#X msg 219 318 1;
-#X obj 219 343 s vodataloaded;
+#N canvas 497 123 913 854 ddfileloader 0;
+#X msg 185 347 1;
+#X obj 185 372 s vodataloaded;
 #X obj 260 117 r ddatapath;
 #X obj 301 48 r ddatabasename;
 #X obj 231 219 util/pdkl-pathjoin;
 #X obj 365 164 r ddunixwin;
 #X obj 366 93 loadbang;
 #X msg 366 118 symbol pdstruct;
-#X msg 222 400 \; pd-dancerdatapatch read \$1;
-#X obj 230 261 t b s b;
-#X msg 315 294 \; pd-dancerdatapatch clear;
+#X msg 447 396 \; pd-dancerdatapatch read \$1;
+#X msg 419 288 \; pd-dancerdatapatch clear;
 #X obj 98 177 r dddataloadname;
+#X obj 231 259 t b b s b;
+#X obj 305 437 r ddloaddataspigot;
+#X obj 235 461 spigot 0;
+#X obj 217 559 pointer;
+#X obj 217 609 get dancerdata numframes;
+#X obj 268 670 s ddnumframes;
+#X obj 217 634 t b f;
+#X msg 213 701 0;
+#X obj 213 726 s ddloaddataspigot;
+#X msg 217 534 traverse pd-dancerdatapatch \, next \, next;
 #X connect 0 0 1 0;
 #X connect 2 0 4 0;
 #X connect 3 0 4 1;
-#X connect 4 0 9 0;
+#X connect 4 0 11 0;
 #X connect 5 0 4 3;
 #X connect 6 0 7 0;
 #X connect 7 0 4 2;
-#X connect 9 0 0 0;
-#X connect 9 1 8 0;
-#X connect 9 2 10 0;
-#X connect 11 0 9 0;
+#X connect 10 0 11 0;
+#X connect 11 0 0 0;
+#X connect 11 1 13 0;
+#X connect 11 2 8 0;
+#X connect 11 3 9 0;
+#X connect 12 0 13 1;
+#X connect 13 0 20 0;
+#X connect 14 0 15 0;
+#X connect 15 0 17 0;
+#X connect 17 0 18 0;
+#X connect 17 1 16 0;
+#X connect 18 0 19 0;
+#X connect 20 0 14 0;
 #X restore 503 113 pd ddfileloader;
 #X obj 118 167 bng 27 250 50 0 ddcleardata empty clear-data 37 13 0
 15 -262144 -1 -1;
@@ -65,7 +83,6 @@
 #N canvas 387 523 1528 575 dancerdatapatch 0;
 #X restore 504 76 pd dancerdatapatch;
 #N canvas 596 152 1060 586 dancerstruct 0;
-#X obj 29 20 struct dancerdata float pos array oscdata emotibit;
 #N canvas 1068 241 655 514 setcursor 0;
 #X obj 83 127 r ddcurframe;
 #X obj 111 326 set moving-cursor x;
@@ -84,12 +101,12 @@
 ppg-grn float eda float temp float therm float humidity float acc-x
 float acc-y float acc-z float gyro-x float gyro-y float gyro-z float
 mag-x float mag-y float mag-z;
-#X restore 32 57 pd emotibitstruct;
+#X restore 28 56 pd emotibitstruct;
 #N canvas 706 242 450 300 moving-cursor-struct 0;
-#X obj 66 89 struct moving-cursor float x;
 #X obj 85 169 drawpolygon 900 3 0 0 0 500;
 #X obj 77 117 r dd-showcursor;
-#X connect 2 0 1 0;
+#X obj 66 89 struct moving-cursor float x;
+#X connect 1 0 0 0;
 #X restore 33 84 pd moving-cursor-struct;
 #X obj 246 61 r showacc;
 #X obj 262 253 r showhumidity;
@@ -115,28 +132,38 @@ mag-x float mag-y float mag-z;
 #X obj 654 375 plot -y eda(0:5)(500:0) oscdata 227 1;
 #X obj 653 453 plot -y temp(20:40)(500:0) oscdata 722 1;
 #X obj 659 524 plot -y therm(25:35)(500:0) oscdata 332 1;
-#X connect 4 0 6 0;
-#X connect 4 0 7 0;
+#X obj 29 20 struct dancerdata float pos float numframes array oscdata
+emotibit;
+#X connect 3 0 5 0;
+#X connect 3 0 6 0;
+#X connect 3 0 7 0;
 #X connect 4 0 8 0;
-#X connect 5 0 9 0;
-#X connect 10 0 12 0;
-#X connect 10 0 13 0;
+#X connect 9 0 11 0;
+#X connect 9 0 12 0;
+#X connect 9 0 13 0;
 #X connect 10 0 14 0;
-#X connect 11 0 15 0;
-#X connect 11 0 16 0;
-#X connect 11 0 17 0;
-#X connect 18 0 19 0;
-#X connect 18 0 20 0;
-#X connect 18 0 21 0;
+#X connect 10 0 15 0;
+#X connect 10 0 16 0;
+#X connect 17 0 18 0;
+#X connect 17 0 19 0;
+#X connect 17 0 20 0;
+#X connect 21 0 24 0;
 #X connect 22 0 25 0;
 #X connect 23 0 26 0;
-#X connect 24 0 27 0;
 #X restore 506 149 pd dancerstruct;
-#X obj 122 201 bng 27 250 50 0 ddloaddata empty load(just)data 37 13
+#X obj 119 199 bng 27 250 50 0 ddloaddata empty load(just)data 37 13
 0 15 -262144 -1 -1;
-#X obj 628 257 r ddloaddata;
+#X obj 623 236 r ddloaddata;
 #X obj 628 282 openpanel;
-#X obj 628 307 s dddataloadname;
+#X obj 649 410 s dddataloadname;
+#X msg 589 413 27;
+#X obj 589 438 s ddfps;
+#X obj 119 234 tgl 27 0 ddplaydata empty play(just)data 44 11 0 15
+-262144 -1 -1 1 1;
+#X obj 493 230 r ddplaydata;
+#X obj 628 307 t b s b;
+#X obj 703 359 s ddloaddataspigot;
+#X msg 695 321 1;
 #X connect 9 0 10 0;
 #X connect 10 0 2 0;
 #X connect 10 0 3 0;
@@ -160,34 +187,39 @@ mag-x float mag-y float mag-z;
 #X connect 20 0 10 0;
 #X connect 23 0 21 0;
 #X connect 27 0 28 0;
-#X connect 28 0 29 0;
-#X coords 0 -1 1 1 200 540 1 100 100;
+#X connect 28 0 34 0;
+#X connect 30 0 31 0;
+#X connect 34 0 30 0;
+#X connect 34 1 29 0;
+#X connect 34 2 36 0;
+#X connect 36 0 35 0;
+#X coords 0 -1 1 1 200 560 1 100 100;
 #X restore 50 49 pd graphcontrol;
 #N canvas 825 322 1133 733 datavis 0;
 #X obj 107 215 nbx 7 20 -1e+37 1e+37 0 0 empty ppg-ir ppg-ir 0 -8 0
-17 -262144 -1 -1 0 256;
+17 -262144 -1 -1 159390 256;
 #X obj 108 257 nbx 7 20 -1e+37 1e+37 0 0 empty ppg-red ppg-red 0 -8
-0 17 -262144 -1 -1 0 256;
+0 17 -262144 -1 -1 98828.5 256;
 #X obj 106 293 nbx 7 20 -1e+37 1e+37 0 0 empty ppg-grn ppg-grn 0 -8
-0 17 -262144 -1 -1 0 256;
+0 17 -262144 -1 -1 5036 256;
 #X obj 111 333 nbx 5 20 -1e+37 1e+37 0 0 empty eda eda 0 -8 0 17 -262144
--1 -1 0 256;
+-1 -1 3.276 256;
 #X obj 108 375 nbx 5 20 -1e+37 1e+37 0 0 empty temp temp 0 -8 0 17
--262144 -1 -1 0 256;
+-262144 -1 -1 33.508 256;
 #X obj 108 417 nbx 5 20 -1e+37 1e+37 0 0 empty therm therm 0 -8 0 17
--262144 -1 -1 0 256;
+-262144 -1 -1 31.307 256;
 #X obj 107 460 nbx 5 20 -1e+37 1e+37 0 0 empty humidity humidity 0
--8 0 17 -262144 -1 -1 0 256;
+-8 0 17 -262144 -1 -1 79.018 256;
 #X obj 227 147 nbx 5 20 -1e+37 1e+37 0 0 empty acc-x acc-x 0 -8 0 17
--262144 -1 -1 0 256;
+-262144 -1 -1 0.905 256;
 #X obj 225 186 nbx 5 20 -1e+37 1e+37 0 0 empty acc-y acc-y 0 -8 0 17
--262144 -1 -1 0 256;
+-262144 -1 -1 -0.349 256;
 #X obj 227 224 nbx 5 20 -1e+37 1e+37 0 0 empty acc-z acc-z 0 -8 0 17
--262144 -1 -1 0 256;
+-262144 -1 -1 -0.114 256;
 #X obj 227 267 nbx 5 20 -1e+37 1e+37 0 0 empty gyro-x gyro-x 0 -8 0
-17 -262144 -1 -1 0 256;
+17 -262144 -1 -1 7.2175 256;
 #X obj 224 306 nbx 5 20 -1e+37 1e+37 0 0 empty gyro-y gyro-y 0 -8 0
-17 -262144 -1 -1 0 256;
+17 -262144 -1 -1 -1.938 256;
 #N canvas 293 193 1300 260 dancerarrayget-acc 0;
 #X obj 312 82 r ddataptr;
 #X obj 87 154 array get -s dancerdata oscdata -f emotibit acc-x;
@@ -394,21 +426,19 @@ mag-x float mag-y float mag-z;
 #X connect 23 0 16 0;
 #X restore 338 173 pd dancerarrayget-other;
 #X obj 226 345 nbx 5 20 -1e+37 1e+37 0 0 empty gyro-z gyro-z 0 -8 0
-17 -262144 -1 -1 0 256;
+17 -262144 -1 -1 -4.6845 256;
 #X obj 224 384 nbx 5 20 -1e+37 1e+37 0 0 empty mag-x mag-x 0 -8 0 17
--262144 -1 -1 0 256;
+-262144 -1 -1 29 256;
 #X obj 224 422 nbx 5 20 -1e+37 1e+37 0 0 empty mag-y mag-y 0 -8 0 17
--262144 -1 -1 0 256;
+-262144 -1 -1 -4.5 256;
 #X obj 222 460 nbx 5 20 -1e+37 1e+37 0 0 empty mag-z mag-z 0 -8 0 17
--262144 -1 -1 0 256;
+-262144 -1 -1 -52 256;
 #X obj 112 154 tgl 27 0 dd-shownum empty show 44 11 0 15 -262144 -1
--1 1 1;
+-1 0 1;
 #X obj 120 26 loadbang;
 #X msg 120 51 1;
 #N canvas 209 267 1024 509 ddptrcalc 0;
 #X obj 100 41 r ddcurframe;
-#X obj 137 85 spigot;
-#X obj 234 41 r dd-shownum;
 #X obj 137 110 t f f;
 #X obj 183 136 / 1000;
 #X obj 183 161 i;
@@ -425,28 +455,30 @@ mag-x float mag-y float mag-z;
 #X obj 132 210 % 1000;
 #X obj 169 382 pointer;
 #X msg 253 383 next;
-#X obj 98 298 s ddmodframe;
+#X obj 65 375 s ddmodframe;
+#X obj 47 334 spigot;
+#X obj 93 285 r dd-shownum;
 #X connect 0 0 1 0;
-#X connect 1 0 3 0;
-#X connect 2 0 1 1;
-#X connect 3 0 16 0;
-#X connect 3 1 4 0;
+#X connect 1 0 14 0;
+#X connect 1 1 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
 #X connect 4 0 5 0;
-#X connect 5 0 6 0;
-#X connect 6 0 7 0;
-#X connect 7 0 14 0;
-#X connect 8 0 17 0;
-#X connect 10 0 15 0;
-#X connect 11 0 12 0;
-#X connect 12 0 6 0;
-#X connect 13 0 10 0;
-#X connect 13 1 18 0;
-#X connect 13 2 8 0;
-#X connect 14 0 13 0;
-#X connect 15 0 17 0;
-#X connect 16 0 19 0;
-#X connect 17 0 9 0;
+#X connect 5 0 12 0;
+#X connect 6 0 15 0;
+#X connect 8 0 13 0;
+#X connect 9 0 10 0;
+#X connect 10 0 4 0;
+#X connect 11 0 8 0;
+#X connect 11 1 16 0;
+#X connect 11 2 6 0;
+#X connect 12 0 11 0;
+#X connect 13 0 15 0;
+#X connect 14 0 18 0;
+#X connect 15 0 7 0;
+#X connect 16 0 15 0;
 #X connect 18 0 17 0;
+#X connect 19 0 18 1;
 #X restore 345 109 pd ddptrcalc;
 #X connect 22 0 23 0;
 #X connect 23 0 21 0;
@@ -468,71 +500,71 @@ mag-x float mag-y float mag-z;
 #X obj 259 272 v oscoutport;
 #X obj 170 43 loadbang;
 #X msg 170 68 5000;
-#N canvas 445 142 1195 553 ddatagetter 0;
+#N canvas 404 193 1312 487 ddatagetter 0;
 #X obj 431 53 r ddataptr;
 #X obj 242 117 element dancerdata oscdata;
 #X obj 209 186 + 1;
 #X obj 190 222 oscformat frame;
-#X obj 236 256 oscformat PPG:IR;
-#X obj 281 283 oscformat PPG:RED;
-#X obj 310 319 oscformat PPG:GRN;
-#X obj 308 203 oscformat EDA;
-#X obj 370 242 oscformat TEMP;
-#X obj 418 278 oscformat THERM;
-#X obj 467 319 oscformat HUMIDITY;
-#X obj 521 246 oscformat ACC:X;
-#X obj 573 273 oscformat ACC:Y;
-#X obj 609 322 oscformat ACC:Z;
-#X obj 659 243 oscformat GYRO:X;
-#X obj 723 278 oscformat GYRO:Y;
-#X obj 747 319 oscformat GYRO:Z;
-#X obj 804 238 oscformat MAG:X;
-#X obj 866 269 oscformat MAG:Y;
-#X obj 892 314 oscformat MAG:Z;
 #X obj 274 427 outlet;
 #X obj 234 72 r ddmodframe;
 #X text 50 194 0-index to 1-index;
 #X obj 242 142 get emotibit x ppg-ir ppg-red ppg-grn eda temp therm
 humidity acc-x acc-y acc-z gyro-x gyro-y gyro-z mag-x mag-y mag-z,
-f 94;
+f 131;
+#X obj 96 271 oscformat EmotiBit 0 PPG:IR;
+#X obj 183 312 oscformat EmotiBit 0 PPG:RED;
+#X obj 212 348 oscformat EmotiBit 0 PPG:GRN;
+#X obj 308 203 oscformat EmotiBit 0 EDA;
+#X obj 370 242 oscformat EmotiBit 0 TEMP;
+#X obj 418 278 oscformat EmotiBit 0 THERM;
+#X obj 422 310 oscformat EmotiBit 0 HUMIDITY;
+#X obj 587 230 oscformat EmotiBit 0 ACC:X;
+#X obj 624 266 oscformat EmotiBit 0 ACC:Y;
+#X obj 663 325 oscformat EmotiBit 0 ACC:Z;
+#X obj 793 211 oscformat EmotiBit 0 GYRO:X;
+#X obj 830 242 oscformat EmotiBit 0 GYRO:Y;
+#X obj 826 282 oscformat EmotiBit 0 GYRO:Z;
+#X obj 990 180 oscformat EmotiBit 0 MAG:X;
+#X obj 1032 246 oscformat EmotiBit 0 MAG:Y;
+#X obj 992 317 oscformat EmotiBit 0 MAG:Z;
 #X connect 0 0 1 1;
-#X connect 1 0 23 0;
+#X connect 1 0 7 0;
 #X connect 2 0 3 0;
-#X connect 3 0 20 0;
-#X connect 4 0 20 0;
-#X connect 5 0 20 0;
-#X connect 6 0 20 0;
-#X connect 7 0 20 0;
-#X connect 8 0 20 0;
-#X connect 9 0 20 0;
-#X connect 10 0 20 0;
-#X connect 11 0 20 0;
-#X connect 12 0 20 0;
-#X connect 13 0 20 0;
-#X connect 14 0 20 0;
-#X connect 15 0 20 0;
-#X connect 16 0 20 0;
-#X connect 17 0 20 0;
-#X connect 18 0 20 0;
-#X connect 19 0 20 0;
-#X connect 21 0 1 0;
-#X connect 23 0 2 0;
-#X connect 23 1 4 0;
-#X connect 23 2 5 0;
-#X connect 23 3 6 0;
-#X connect 23 4 7 0;
-#X connect 23 5 8 0;
-#X connect 23 6 9 0;
-#X connect 23 7 10 0;
-#X connect 23 8 11 0;
-#X connect 23 9 12 0;
-#X connect 23 10 13 0;
-#X connect 23 11 14 0;
-#X connect 23 12 15 0;
-#X connect 23 13 16 0;
-#X connect 23 14 17 0;
-#X connect 23 15 18 0;
-#X connect 23 16 19 0;
+#X connect 3 0 4 0;
+#X connect 5 0 1 0;
+#X connect 7 0 2 0;
+#X connect 7 1 8 0;
+#X connect 7 2 9 0;
+#X connect 7 3 10 0;
+#X connect 7 4 11 0;
+#X connect 7 5 12 0;
+#X connect 7 6 13 0;
+#X connect 7 7 14 0;
+#X connect 7 8 15 0;
+#X connect 7 9 16 0;
+#X connect 7 10 17 0;
+#X connect 7 11 18 0;
+#X connect 7 12 19 0;
+#X connect 7 13 20 0;
+#X connect 7 14 21 0;
+#X connect 7 15 22 0;
+#X connect 7 16 23 0;
+#X connect 8 0 4 0;
+#X connect 9 0 4 0;
+#X connect 10 0 4 0;
+#X connect 11 0 4 0;
+#X connect 12 0 4 0;
+#X connect 13 0 4 0;
+#X connect 14 0 4 0;
+#X connect 15 0 4 0;
+#X connect 16 0 4 0;
+#X connect 17 0 4 0;
+#X connect 18 0 4 0;
+#X connect 19 0 4 0;
+#X connect 20 0 4 0;
+#X connect 21 0 4 0;
+#X connect 22 0 4 0;
+#X connect 23 0 4 0;
 #X restore 103 221 pd ddatagetter;
 #X obj 278 147 r ddosc-sendtgl;
 #X connect 1 0 2 0;
@@ -553,7 +585,7 @@ f 94;
 #X restore 263 454 pd oscsender;
 #X obj 60 12 tgl 27 0 ddunixwin empty unix/win 44 11 0 15 -262144 -1
 -1 0 1;
-#N canvas 350 153 1374 785 vidplayer 0;
+#N canvas 284 153 1700 815 vidplayer 0;
 #X obj 989 27 declare -lib Gem;
 #X text 638 30 Example:;
 #X obj 636 57 gemhead;
@@ -574,34 +606,34 @@ f 94;
 #X obj 938 551 util/dkrdiv 1000;
 #X obj 1080 602 util/dkvanctr;
 #X obj 800 126 r ddplay;
-#X obj 1051 256 r ddplay;
+#X obj 1024 191 r ddplay;
 #X obj 1148 404 t f f;
 #X obj 1181 449 r ddmovieloaded;
 #X obj 1114 290 r ddmetroval;
 #X obj 623 506 s ddmovieloaded;
 #X obj 719 263 r ddframeseek;
 #X obj 1148 379 r ddframeseek;
-#X obj 109 275 hsl 512 15 0 4052 0 0 ddframeseek ddvidseek seek -2
--8 0 12 -262144 -1 -1 0 1;
+#X obj 109 275 hsl 512 15 0 10039 0 0 ddframeseek ddvidseek seek -2
+-8 0 12 -262144 -1 -1 23384 1;
 #X obj 305 655 s ddvidseek;
 #X obj 419 337 r ddopenbang;
-#X obj 106 225 bng 27 250 50 0 ddopenbang empty load-movie(and_data)
+#X obj 105 133 bng 27 250 50 0 ddopenbang empty load-movie(and_data)
 37 13 0 15 -262144 -1 -1;
-#X obj 253 150 nbx 7 20 -1e+37 1e+37 0 0 empty ddnumframes numframes
-0 -8 0 17 -262144 -1 -1 0 256;
-#X obj 498 148 nbx 7 20 -1e+37 1e+37 0 0 empty ddwidth width 0 -8 0
+#X obj 255 208 nbx 7 20 -1e+37 1e+37 0 0 empty ddnumframes numframes
+0 -8 0 17 -262144 -1 -1 10039 256;
+#X obj 500 206 nbx 7 20 -1e+37 1e+37 0 0 empty ddwidth width 0 -8 0
 17 -262144 -1 -1 0 256;
-#X obj 497 187 nbx 7 20 -1e+37 1e+37 0 0 empty ddheight height 0 -8
+#X obj 499 245 nbx 7 20 -1e+37 1e+37 0 0 empty ddheight height 0 -8
 0 17 -262144 -1 -1 0 256;
 #X obj 764 546 s ddwidth;
 #X obj 794 501 s ddheight;
 #X symbolatom 335 109 40 0 0 0 file ddatabasename -;
-#X obj 374 149 nbx 7 20 -1e+37 1e+37 0 0 empty ddcurframe cur_frame
-0 -8 0 17 -262144 -1 -1 0 256;
-#X obj 253 188 nbx 7 20 -1e+37 1e+37 0 0 empty ddfps fps 0 -8 0 17
--262144 -1 -1 0 256;
-#X obj 106 145 tgl 27 0 ddplay empty play 44 11 0 15 -262144 -1 -1
-0 1;
+#X obj 376 207 nbx 7 20 -1e+37 1e+37 0 0 empty ddcurframe cur_frame
+0 -8 0 17 -262144 -1 -1 4594 256;
+#X obj 255 246 nbx 7 20 -1e+37 1e+37 0 0 empty ddfps fps 0 -8 0 17
+-262144 -1 -1 27 256;
+#X obj 102 168 tgl 27 0 ddplay empty play_movie_and_data 44 11 0 15
+-262144 -1 -1 0 1;
 #X obj 965 471 s ddfps;
 #X obj 937 517 r ddfps;
 #X obj 755 596 s ddnumframes;
@@ -616,7 +648,7 @@ f 94;
 #X msg 27 479 0 \, destroy;
 #X msg 102 418 create \, 1;
 #X text 194 358 (stop rendering and);
-#X obj 104 186 tgl 27 0 ddshowscreen empty show-screen 44 11 0 15 -262144
+#X obj 103 207 tgl 27 0 ddshowscreen empty show-screen 44 11 0 15 -262144
 -1 -1 0 1;
 #X obj 37 315 r ddshowscreen;
 #X msg 217 443 dimen 640 360 \, buffer 2;
@@ -627,6 +659,9 @@ f 94;
 #X msg 1033 687 set \$1;
 #X obj 1033 712 s ddvidseek;
 #X obj 741 304 r ddcurframe;
+#X obj 1122 175 r ddplaydata;
+#X obj 1043 247 ||;
+#X obj 1092 208 t b f b;
 #X connect 2 0 7 0;
 #X connect 4 0 12 0;
 #X connect 5 0 7 0;
@@ -648,7 +683,7 @@ f 94;
 #X connect 16 0 47 0;
 #X connect 17 0 59 0;
 #X connect 18 0 6 0;
-#X connect 19 0 48 0;
+#X connect 19 0 64 0;
 #X connect 20 0 17 0;
 #X connect 20 1 58 0;
 #X connect 21 0 17 3;
@@ -672,5 +707,9 @@ f 94;
 #X connect 59 1 58 0;
 #X connect 60 0 61 0;
 #X connect 62 0 7 1;
+#X connect 63 0 65 0;
+#X connect 64 0 48 0;
+#X connect 65 0 64 0;
+#X connect 65 1 64 1;
 #X coords 0 -1 1 1 530 200 1 100 100;
 #X restore 490 49 pd vidplayer;
