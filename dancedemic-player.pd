@@ -25,7 +25,7 @@
 #X obj 392 61 r showall;
 #X obj 367 158 r hideall;
 #X obj 118 129 tgl 27 0 dd-showdata empty show-data 44 11 0 15 -262144
--1 -1 1 1;
+-1 -1 0 1;
 #X obj 121 272 tgl 27 0 dd-showcursor empty show-cursor 44 11 0 15
 -262144 -1 -1 0 1;
 #X obj 119 517 tgl 27 0 showhumidity empty show-humidity 44 11 0 15
@@ -159,7 +159,7 @@ emotibit;
 #X msg 589 413 27;
 #X obj 589 438 s ddfps;
 #X obj 119 234 tgl 27 0 ddplaydata empty play(just)data 44 11 0 15
--262144 -1 -1 1 1;
+-262144 -1 -1 0 1;
 #X obj 493 230 r ddplaydata;
 #X obj 628 307 t b s b;
 #X obj 703 359 s ddloaddataspigot;
@@ -197,29 +197,29 @@ emotibit;
 #X restore 50 49 pd graphcontrol;
 #N canvas 825 322 1133 733 datavis 0;
 #X obj 107 215 nbx 7 20 -1e+37 1e+37 0 0 empty ppg-ir ppg-ir 0 -8 0
-17 -262144 -1 -1 159390 256;
+17 -262144 -1 -1 0 256;
 #X obj 108 257 nbx 7 20 -1e+37 1e+37 0 0 empty ppg-red ppg-red 0 -8
-0 17 -262144 -1 -1 98828.5 256;
+0 17 -262144 -1 -1 0 256;
 #X obj 106 293 nbx 7 20 -1e+37 1e+37 0 0 empty ppg-grn ppg-grn 0 -8
-0 17 -262144 -1 -1 5036 256;
+0 17 -262144 -1 -1 0 256;
 #X obj 111 333 nbx 5 20 -1e+37 1e+37 0 0 empty eda eda 0 -8 0 17 -262144
--1 -1 3.276 256;
+-1 -1 0 256;
 #X obj 108 375 nbx 5 20 -1e+37 1e+37 0 0 empty temp temp 0 -8 0 17
--262144 -1 -1 33.508 256;
+-262144 -1 -1 0 256;
 #X obj 108 417 nbx 5 20 -1e+37 1e+37 0 0 empty therm therm 0 -8 0 17
--262144 -1 -1 31.307 256;
+-262144 -1 -1 0 256;
 #X obj 107 460 nbx 5 20 -1e+37 1e+37 0 0 empty humidity humidity 0
--8 0 17 -262144 -1 -1 79.018 256;
+-8 0 17 -262144 -1 -1 0 256;
 #X obj 227 147 nbx 5 20 -1e+37 1e+37 0 0 empty acc-x acc-x 0 -8 0 17
--262144 -1 -1 0.905 256;
+-262144 -1 -1 0 256;
 #X obj 225 186 nbx 5 20 -1e+37 1e+37 0 0 empty acc-y acc-y 0 -8 0 17
--262144 -1 -1 -0.349 256;
+-262144 -1 -1 0 256;
 #X obj 227 224 nbx 5 20 -1e+37 1e+37 0 0 empty acc-z acc-z 0 -8 0 17
--262144 -1 -1 -0.114 256;
+-262144 -1 -1 0 256;
 #X obj 227 267 nbx 5 20 -1e+37 1e+37 0 0 empty gyro-x gyro-x 0 -8 0
-17 -262144 -1 -1 7.2175 256;
+17 -262144 -1 -1 0 256;
 #X obj 224 306 nbx 5 20 -1e+37 1e+37 0 0 empty gyro-y gyro-y 0 -8 0
-17 -262144 -1 -1 -1.938 256;
+17 -262144 -1 -1 0 256;
 #N canvas 293 193 1300 260 dancerarrayget-acc 0;
 #X obj 312 82 r ddataptr;
 #X obj 87 154 array get -s dancerdata oscdata -f emotibit acc-x;
@@ -426,15 +426,15 @@ emotibit;
 #X connect 23 0 16 0;
 #X restore 338 173 pd dancerarrayget-other;
 #X obj 226 345 nbx 5 20 -1e+37 1e+37 0 0 empty gyro-z gyro-z 0 -8 0
-17 -262144 -1 -1 -4.6845 256;
+17 -262144 -1 -1 0 256;
 #X obj 224 384 nbx 5 20 -1e+37 1e+37 0 0 empty mag-x mag-x 0 -8 0 17
--262144 -1 -1 29 256;
+-262144 -1 -1 0 256;
 #X obj 224 422 nbx 5 20 -1e+37 1e+37 0 0 empty mag-y mag-y 0 -8 0 17
--262144 -1 -1 -4.5 256;
+-262144 -1 -1 0 256;
 #X obj 222 460 nbx 5 20 -1e+37 1e+37 0 0 empty mag-z mag-z 0 -8 0 17
--262144 -1 -1 -52 256;
+-262144 -1 -1 0 256;
 #X obj 112 154 tgl 27 0 dd-shownum empty show 44 11 0 15 -262144 -1
--1 0 1;
+-1 1 1;
 #X obj 120 26 loadbang;
 #X msg 120 51 1;
 #N canvas 209 267 1024 509 ddptrcalc 0;
@@ -605,8 +605,6 @@ f 131;
 #X obj 431 490 util/pdkl-pathparts;
 #X obj 938 551 util/dkrdiv 1000;
 #X obj 1080 602 util/dkvanctr;
-#X obj 800 126 r ddplay;
-#X obj 1024 191 r ddplay;
 #X obj 1148 404 t f f;
 #X obj 1181 449 r ddmovieloaded;
 #X obj 1114 290 r ddmetroval;
@@ -614,13 +612,13 @@ f 131;
 #X obj 719 263 r ddframeseek;
 #X obj 1148 379 r ddframeseek;
 #X obj 109 275 hsl 512 15 0 10039 0 0 ddframeseek ddvidseek seek -2
--8 0 12 -262144 -1 -1 23384 1;
+-8 0 12 -262144 -1 -1 0 1;
 #X obj 305 655 s ddvidseek;
 #X obj 419 337 r ddopenbang;
 #X obj 105 133 bng 27 250 50 0 ddopenbang empty load-movie(and_data)
 37 13 0 15 -262144 -1 -1;
 #X obj 255 208 nbx 7 20 -1e+37 1e+37 0 0 empty ddnumframes numframes
-0 -8 0 17 -262144 -1 -1 10039 256;
+0 -8 0 17 -262144 -1 -1 0 256;
 #X obj 500 206 nbx 7 20 -1e+37 1e+37 0 0 empty ddwidth width 0 -8 0
 17 -262144 -1 -1 0 256;
 #X obj 499 245 nbx 7 20 -1e+37 1e+37 0 0 empty ddheight height 0 -8
@@ -629,11 +627,11 @@ f 131;
 #X obj 794 501 s ddheight;
 #X symbolatom 335 109 40 0 0 0 file ddatabasename -;
 #X obj 376 207 nbx 7 20 -1e+37 1e+37 0 0 empty ddcurframe cur_frame
-0 -8 0 17 -262144 -1 -1 4594 256;
+0 -8 0 17 -262144 -1 -1 0 256;
 #X obj 255 246 nbx 7 20 -1e+37 1e+37 0 0 empty ddfps fps 0 -8 0 17
--262144 -1 -1 27 256;
-#X obj 102 168 tgl 27 0 ddplay empty play_movie_and_data 44 11 0 15
--262144 -1 -1 0 1;
+-262144 -1 -1 0 256;
+#X obj 102 168 tgl 27 0 ddplayvid empty play_movie_and_data 44 11 0
+15 -262144 -1 -1 0 1;
 #X obj 965 471 s ddfps;
 #X obj 937 517 r ddfps;
 #X obj 755 596 s ddnumframes;
@@ -662,6 +660,8 @@ f 131;
 #X obj 1122 175 r ddplaydata;
 #X obj 1043 247 ||;
 #X obj 1092 208 t b f b;
+#X obj 800 126 r ddplayvid;
+#X obj 1024 191 r ddplayvid;
 #X connect 2 0 7 0;
 #X connect 4 0 12 0;
 #X connect 5 0 7 0;
@@ -669,47 +669,47 @@ f 131;
 #X connect 7 0 11 0;
 #X connect 7 1 9 0;
 #X connect 7 2 3 0;
-#X connect 8 0 41 0;
-#X connect 8 1 33 0;
-#X connect 8 2 34 0;
-#X connect 8 3 39 0;
-#X connect 9 0 23 0;
+#X connect 8 0 39 0;
+#X connect 8 1 31 0;
+#X connect 8 2 32 0;
+#X connect 8 3 37 0;
+#X connect 9 0 21 0;
 #X connect 9 1 8 0;
-#X connect 10 0 27 0;
+#X connect 10 0 25 0;
 #X connect 12 0 5 0;
 #X connect 12 1 15 0;
 #X connect 15 0 14 0;
 #X connect 15 1 13 0;
-#X connect 16 0 47 0;
-#X connect 17 0 59 0;
-#X connect 18 0 6 0;
-#X connect 19 0 64 0;
-#X connect 20 0 17 0;
-#X connect 20 1 58 0;
-#X connect 21 0 17 3;
-#X connect 22 0 48 1;
-#X connect 25 0 20 0;
-#X connect 28 0 4 0;
-#X connect 40 0 16 0;
-#X connect 42 0 17 1;
-#X connect 43 0 10 0;
-#X connect 44 0 45 0;
-#X connect 45 0 46 0;
-#X connect 48 0 17 0;
-#X connect 50 0 49 0;
-#X connect 51 0 49 0;
-#X connect 54 0 57 0;
-#X connect 55 0 49 0;
-#X connect 56 0 55 0;
-#X connect 57 0 50 0;
-#X connect 57 1 51 0;
-#X connect 59 0 60 0;
-#X connect 59 1 58 0;
-#X connect 60 0 61 0;
-#X connect 62 0 7 1;
-#X connect 63 0 65 0;
-#X connect 64 0 48 0;
-#X connect 65 0 64 0;
-#X connect 65 1 64 1;
+#X connect 16 0 45 0;
+#X connect 17 0 57 0;
+#X connect 18 0 17 0;
+#X connect 18 1 56 0;
+#X connect 19 0 17 3;
+#X connect 20 0 46 1;
+#X connect 23 0 18 0;
+#X connect 26 0 4 0;
+#X connect 38 0 16 0;
+#X connect 40 0 17 1;
+#X connect 41 0 10 0;
+#X connect 42 0 43 0;
+#X connect 43 0 44 0;
+#X connect 46 0 17 0;
+#X connect 48 0 47 0;
+#X connect 49 0 47 0;
+#X connect 52 0 55 0;
+#X connect 53 0 47 0;
+#X connect 54 0 53 0;
+#X connect 55 0 48 0;
+#X connect 55 1 49 0;
+#X connect 57 0 58 0;
+#X connect 57 1 56 0;
+#X connect 58 0 59 0;
+#X connect 60 0 7 1;
+#X connect 61 0 63 0;
+#X connect 62 0 46 0;
+#X connect 63 0 62 0;
+#X connect 63 1 62 1;
+#X connect 64 0 6 0;
+#X connect 65 0 62 0;
 #X coords 0 -1 1 1 530 200 1 100 100;
 #X restore 490 49 pd vidplayer;

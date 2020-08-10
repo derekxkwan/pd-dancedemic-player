@@ -28,8 +28,10 @@ with open(filename) as f:
             curVal = 0
             if len(curVals) > 1:
                 curVal = functools.reduce(lambda x,y: x+y, curVals)/float(len(curVals))
-            else:
+            elif len(curVals) == 1:
                 curVal = curVals[0]
+            else:
+                break
             if curParam != "frame": 
                 cur[curParam] = curVal
                 if curVal > minmax[curParam]["max"]:
